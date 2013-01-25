@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   private
     def set_api_key
-      api_key = Digest::MD5.hexdigest(email+DateTime.now.to_s)
+      self.api_key = Digest::MD5.hexdigest(email+DateTime.now.to_s)
     end
 
 end

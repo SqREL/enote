@@ -11,10 +11,13 @@ class User < ActiveRecord::Base
 
   before_create :set_api_key
 
-
-  def set_api_key
-    api_key = Digest::MD5.hexdigest(email+DateTine.now.to_s)
+  def regenerate_api_key
+    update_attribute(:api_key, set_api_key)
   end
-  alias :regenerate_api_key :set_api_key
+
+  private
+    def set_api_key
+      api_key = Digest::MD5.hexdigest(email+DateTime.now.to_s)
+    end
 
 end

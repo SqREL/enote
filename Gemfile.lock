@@ -64,6 +64,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.19)
     multi_json (1.5.0)
+    pg (0.14.1)
     polyglot (0.3.3)
     rack (1.4.4)
     rack-cache (1.2)
@@ -136,6 +137,7 @@ DEPENDENCIES
   factory_girl_rails
   high_voltage
   jquery-rails
+  pg
   rails (= 3.2.11)
   rspec-rails
   sass-rails (~> 3.2.3)

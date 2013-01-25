@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Enote</title>
+  <title>Enote | Unlimited cloud notes storage</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <a href="https://github.com/SqREL/enote"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
 
+  <header>
+    <a href="/"><img src="/assets/logo.png"></a>
+    <div class="header_title">
+      <h1>Enote</h1> <br />
+      <h3>Unlimited cloud notes storage</h3>
+    </div>
+  </header>
+
+  <div class="menu">
+    <% if current_user %>
+      <%= link_to "List of my notes", notes_path %> |
+      <%= link_to "Create new note", new_note_path %> |
+      <%= link_to "Account", user_path(current_user) %> |
+      <%= link_to "Sign out", sign_out_path %>
+    <% else %>
+      To use this service, please <%= link_to "Sign in", sign_in_path %> or <%= link_to "Sign up", sign_up_path %>
+  <% end %>
+  </div>
 <%= yield %>
 
 </body>

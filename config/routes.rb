@@ -1,4 +1,18 @@
 Enote::Application.routes.draw do
+  resources :users
+
+
+  resources :notes
+  resources :sessions
+
+  match "sign_in"  => "sessions#new"
+  match "sign_out" => "sessions#destroy"
+  match "sign_up"  => "users#new"
+  match "regenerate_api_key"  => "users#regenerate_api_key"
+
+  root :to => "notes#index"
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
